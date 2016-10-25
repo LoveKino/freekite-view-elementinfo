@@ -1,0 +1,22 @@
+{
+  "name": "freekite-view-elementinfo",
+  "version": "0.0.1",
+  "description": "freekite view elementinfo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoveKino/freekite-view-elementinfo.git"
+  },
+  "author": "ddchen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LoveKino/freekite-view-elementinfo/issues"
+  },
+  "homepage": "https://github.com/LoveKino/freekite-view-elementinfo#readme",
+  "dependencies": {
+    "kabanery": "^0.1.0"
+  }
+}
