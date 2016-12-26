@@ -1,6 +1,6 @@
 {
   "name": "freekite-view-elementinfo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "freekite view elementinfo",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/LoveKino/freekite-view-elementinfo#readme",
   "dependencies": {
+    "bolzano": "^0.1.0",
     "kabanery": "^0.1.0"
   }
 }
