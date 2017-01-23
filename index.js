@@ -37,52 +37,7 @@ module.exports = view(({
             }
         }, node.tagName),
 
-        n('h4', 'path'),
-
-        n(`input type="checkbox" ${node.strictPath? 'checked=true': ''}`, {
-            onclick: (e) => {
-                node.strictPath = e.target.checked;
-            }
-        }),
-
-        n('div', {
-            style: {
-                display: 'inline-block'
-            }
-        }, showStrictPath(nodeInfo)),
-
-        Object.keys(node.attributes || {}).length && [
-            n('h4', 'attributes'),
-
-            // style part
-            n('ul', {
-                style: {
-                    backgroundColor: 'white'
-                }
-            }, map(node.attributes, (value, key) => {
-                return n('li class=field-line', [
-                    n(`input type="checkbox" ${node.chosenAttributes[key]? 'checked=true': ''}`, {
-                        onclick: (e) => {
-                            node.chosenAttributes[key] = e.target.checked;
-                        }
-                    }),
-
-                    n('label', {
-                        style: {
-                            width: 100,
-                            display: 'inline-block'
-                        }
-                    }, key),
-
-                    n('div', {
-                        style: {
-                            display: 'inline-block'
-                        }
-                    }, value + '')
-                ]);
-            }))
-        ],
-
+        // style part
         n('h4', 'captured styles'),
 
         // style part
@@ -125,7 +80,67 @@ module.exports = view(({
             style: {
                 display: 'inline-block'
             }
-        }, textContent)
+        }, textContent),
+
+        n('h4', 'order in parent'),
+
+        n(`input type="checkbox" ${node.chosenOrder? 'checked=true':''}`, {
+            onclick: (e) => {
+                node.chosenOrder = e.target.checked;
+            }
+        }),
+
+        n('div', {
+            style: {
+                display: 'inline-block'
+            }
+        }, node.index + ''),
+
+        n('h4', 'path'),
+
+        n(`input type="checkbox" ${node.strictPath? 'checked=true': ''}`, {
+            onclick: (e) => {
+                node.strictPath = e.target.checked;
+            }
+        }),
+
+        n('div', {
+            style: {
+                display: 'inline-block'
+            }
+        }, showStrictPath(nodeInfo)),
+
+        // attributes
+        Object.keys(node.attributes || {}).length && [
+            n('h4', 'attributes'),
+
+            n('ul', {
+                style: {
+                    backgroundColor: 'white'
+                }
+            }, map(node.attributes, (value, key) => {
+                return n('li class=field-line', [
+                    n(`input type="checkbox" ${node.chosenAttributes[key]? 'checked=true': ''}`, {
+                        onclick: (e) => {
+                            node.chosenAttributes[key] = e.target.checked;
+                        }
+                    }),
+
+                    n('label', {
+                        style: {
+                            width: 100,
+                            display: 'inline-block'
+                        }
+                    }, key),
+
+                    n('div', {
+                        style: {
+                            display: 'inline-block'
+                        }
+                    }, value + '')
+                ]);
+            }))
+        ]
     ]);
 });
 
